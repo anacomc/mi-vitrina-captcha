@@ -57,13 +57,21 @@
 
         </div>
 
-        <!-- FORMULARIO OCULTO DE CAPTURA DE CORREOS -->
+        <!-- FORMULARIO DE CAPTURA DE CORREOS CONECTADO A FORMSPREE -->
         <div id="miFormulario" class="form-registro">
-            <h3>Regístrate para obtener tu Demo</h3>
-            <form onsubmit="procesarRegistro(event)">
-                <input type="text" id="nombre" placeholder="Tu Nombre Comercial" required><br>
-                <input type="email" id="correo" placeholder="Tu Correo Electrónico" required><br>
-                <button type="submit" class="btn-descarga" style="margin-top: 10px;">Obtener Enlace de Descarga</button>
+            <h3>Regístrate para obtener tu Demo Gratuita</h3>
+            <p style="fontSize: 0.9em; color: #666;">Al enviar el formulario se liberará de inmediato la descarga del archivo .zip</p>
+            
+            <!-- REEMPLAZA LA URL DE ACTION POR TU ENLACE REAL DE FORMSPREE -->
+            <form action="https://formspree.io/f/xaewwkjo" method="POST" onsubmit="prepararRedireccion(event, this)">
+                <input type="text" name="NombreComercial" placeholder="Tu Nombre o Empresa" required><br>
+                <input type="email" name="CorreoCliente" placeholder="Tu Correo Electrónico" required><br>
+                
+                <!-- ESTE CAMPO INVISIBLE LE ORDENA A FORMSPREE ADÓNDE MANDAR AL CLIENTE TRAS REGISTRARSE -->
+                <!-- Reemplaza el valor por la ruta real donde vayas a alojar tu archivo demo.zip -->
+                <input type="hidden" name="_next" id="nextUrl" value="https://onrender.com">
+                
+                <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
             </form>
         </div>
     </div>

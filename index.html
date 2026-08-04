@@ -57,23 +57,23 @@
 
         </div>
 
-        <!-- FORMULARIO DE CAPTURA DE CORREOS CONECTADO A FORMSPREE -->
+        <!-- FORMULARIO DE CAPTURA DE CORREOS INTEGRADO AL 100% -->
         <div id="miFormulario" class="form-registro">
             <h3>Regístrate para obtener tu Demo Gratuita</h3>
-            <p style="fontSize: 0.9em; color: #666;">Al enviar el formulario se liberará de inmediato la descarga del archivo .zip</p>
+            <p style="font-size: 0.9em; color: #666;">Al enviar el formulario se iniciará la descarga de forma automatizada.</p>
             
-            <!-- REEMPLAZA LA URL DE ACTION POR TU ENLACE REAL DE FORMSPREE -->
-            <form action="https://formspree.io/f/xaewwkjo" method="POST" onsubmit="prepararRedireccion(event, this)">
+            <!-- ENVIAMOS POR POST PURO Y DIRECTO SIN ENREDOS DE INTERRUPTORES JAVASCRIPT -->
+            <form action="https://formspree.io/f/xaewwkjo" method="POST">
                 <input type="text" name="NombreComercial" placeholder="Tu Nombre o Empresa" required><br>
                 <input type="email" name="CorreoCliente" placeholder="Tu Correo Electrónico" required><br>
                 
-                <!-- ESTE CAMPO INVISIBLE LE ORDENA A FORMSPREE ADÓNDE MANDAR AL CLIENTE TRAS REGISTRARSE -->
-                <!-- Reemplaza el valor por la ruta real donde vayas a alojar tu archivo demo.zip -->
-                <input type="hidden" name="_next" id="nextUrl" value="https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip">
+                <!-- DIRECCIÓN MÁGICA: Apunta directo al archivo empaquetado en tu Render -->
+                <input type="hidden" name="_next" value="https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip">
                 
                 <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
             </form>
         </div>
+        
     </div>
 
     <script>

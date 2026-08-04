@@ -56,23 +56,29 @@
             </div>
 
         </div>
-
-        <!-- FORMULARIO DE CAPTURA DE CORREOS INTEGRADO AL 100% -->
+        
+        <!-- FORMULARIO DE CAPTURA DE CORREOS AUTOMÁTICO Y 100% GRATUITO -->
         <div id="miFormulario" class="form-registro">
             <h3>Regístrate para obtener tu Demo Gratuita</h3>
             <p style="font-size: 0.9em; color: #666;">Al enviar el formulario se iniciará la descarga de forma automatizada.</p>
             
-            <!-- ENVIAMOS POR POST PURO Y DIRECTO SIN ENREDOS DE INTERRUPTORES JAVASCRIPT -->
-            <form action="https://formspree.io/f/xaewwkjo" method="POST">
+            <!-- CAMBIAMOS EL MOTOR A FORMSUBMIT PASANDO TU CORREO REAL DE DESTINO -->
+            <!-- Coloca tu correo electrónico real donde dice 'tu_correo_aqui@gmail.com' -->
+            <form action="https://formsubmit.co/anacomc@gmail.com" method="POST">
+                
+                <!-- TRUCO DE HARDWARE: Le ordenamos a Formsubmit que use tu página de gracias de Render -->
+                <input type="hidden" name="_next" value="https://captchasolver-0r9q.onrender.com/gracias.html">
+                
+                <!-- TRUCO EXTRA: Apaga la pantalla de confirmación molesta de robots (reCAPTCHA) -->
+                <input type="hidden" name="_captcha" value="false">
+
                 <input type="text" name="NombreComercial" placeholder="Tu Nombre o Empresa" required><br>
                 <input type="email" name="CorreoCliente" placeholder="Tu Correo Electrónico" required><br>
-                
-                <!-- DIRECCIÓN MÁGICA: Apunta directo al archivo empaquetado en tu Render -->
-                <input type="hidden" name="_next" value="https://captchasolver-0r9q.onrender.com/gracias.html">
                 
                 <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
             </form>
         </div>
+
         
     </div>
 

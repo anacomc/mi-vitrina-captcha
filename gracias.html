@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciando Descarga - CaptchaSolver</title>
+    <!-- EL TRUCO DE HARDWARE: A los 2 segundos exactos, este comando fuerza al navegador a descargar el .zip -->
+    <meta http-equiv="refresh" content="2;url=https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px; background-color: #f9f9f9; color: #333; }
+        .box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: inline-block; max-width: 500px; }
+        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #2196F3; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>¡Registro Exitoso! 🏆</h2>
+        <p>Gracias por tu interés en <strong>CaptchaSolver</strong>.</p>
+        <div class="spinner"></div>
+        <p style="color: #666;">Tu descarga comenzará automáticamente en un par de segundos...</p>
+        <p style="font-size: 0.85em; color: #999;">Si la descarga no inicia, <a href="https://onrender.com" style="color: #2196F3; font-weight: bold;">haz clic aquí</a> para forzarla.</p>
+    </div>
+</body>
+</html>

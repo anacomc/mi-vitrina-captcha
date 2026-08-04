@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptchaSolver - Auditoría Fiscal Masiva</title>
+    <style>
+        /* ESTILOS DE VITRINA MODERNA */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; text-align: center; }
+        header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 60px 20px; }
+        h1 { margin: 0; fontSize: 2.5em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .btn-descarga { background-color: #ff9800; color: white; padding: 15px 30px; fontSize: 1.2em; border: none; borderRadius: 5px; cursor: pointer; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .video-box { background: white; border: 1px solid #ddd; borderRadius: 8px; padding: 20px; margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .form-registro { background: #fff; padding: 30px; borderRadius: 8px; border: 1px solid #eee; display: none; margin-top: 30px; }
+        input[type="email"], input[type="text"] { width: 80%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; borderRadius: 4px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Automatiza tus Consultas del SENIAT en Segundos</h1>
+        <p>Procesa lotes masivos de Excel y SQL Server con tecnología de reencuadre mecánico inteligente.</p>
+        <!-- BOTÓN QUE DISPARA EL REGISTRO -->
+        <button class="btn-descarga" onclick="mostrarFormulario()">DESCARGAR DEMO GRATIS</button>
+    </header>
+
+    <div class="container">
+        <!-- SECCIÓN DE VIDEOS DEMOSTRATIVOS -->
+        <div class="video-box">
+            <h2>Mira cómo funciona en tiempo real</h2>
+            <!-- Reemplaza el link por tu video real de YouTube -->
+            <iframe width="100%" height="400" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- FORMULARIO OCULTO DE CAPTURA DE CORREOS -->
+        <div id="miFormulario" class="form-registro">
+            <h3>Regístrate para obtener tu Demo</h3>
+            <form onsubmit="procesarRegistro(event)">
+                <input type="text" id="nombre" placeholder="Tu Nombre Comercial" required><br>
+                <input type="email" id="correo" placeholder="Tu Correo Electrónico" required><br>
+                <button type="submit" class="btn-descarga" style="margin-top: 10px;">Obtener Enlace de Descarga</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById('miFormulario').style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        function procesarRegistro(e) {
+            e.preventDefault();
+            var correo = document.getElementById('correo').value;
+            alert("¡Registro Exitoso! Guardando correo: " + correo);
+            
+            // AQUÍ DIRECCIONAS EL LINK FÍSICO DE TU INSTALADOR DEMO
+            window.location.href = "https://tu-servidor-render.com";
+        }
+    </script>
+</body>
+</html>

@@ -33,25 +33,24 @@
             <img src="logo.png" alt="CaptchaSolver Logo" style="max-width: 200px; height: auto; border-radius: 8px;">
         </div>
 
-        <h2>Mira el sistema operando en tiempo real</h2>
+        <h3>Consulta Rif online</h3>
+        <h3>===================</h3>
+        <p>■ Aplicacion de escritorio para windows que te permite consultar comodamente el RIF </p>
+        <p> de tus Clientes y Proveedores, obtener su Nombre y porcentaje de retencion para mantener</p>
+        <p> tu base de datos actualizada al 100%</p>
+        <p>■ Puede ser usada interactivamente</p>
+        <p>■ Puede ser integrada es tus aplicaciones si eres desarrollador</p>
+        <p>■ Puede conectarse a SQL y actualizar tus datos de forma transparente</p>
+        <p>■ Puedes conectar con Excel y procesar una hoja de calculo que contenga los numeros de RIF </p>
+        <p> de Clientes y Proveedores y desde alli tu, si eres desarrollador, integrarlo a tus bases de datos</p>
         
-        <p>Consulta Rif online</p>
-        <p>===================</p>
-        <p>Aplicacion de escritorio para windows que te permite consultar comodamente el RIF </p>
-        <p>de tus Clientes y Proveedores, obtener su Nombre y porcentaje de retencion para mantener</p>
-        <p>tu base de datos actualizada al 100%</p>
-        <p>Puede ser usada interactivamente</p>
-        <p>Puede ser integrada es tus aplicaciones si eres desarrollador</p>
-        <p>Puede conectarse a SQL y actualizar tus datos de forma transparente</p>
-        <p>Puedes conectar con Excel y procesar una hoja de calculo que contenga los numeros de RIF </p>
-        <p>de Clientes y Proveedores y desde alli tu, si eres desarrollador, integrarlo a tus bases de datos</p>
+        <h2>Mira el sistema operando en tiempo real</h2>
 
         <!-- CONTENEDOR DE DOS COLUMNAS PARA VIDEOS -->
         <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-            
             <!-- VIDEO 1: CONSULTA INDIVIDUAL -->
             <div class="video-box" style="flex: 1; min-width: 800px; max-width: 800px; margin: 0;">
-                <h3>1. Consulta Individual y EditBox</h3>
+                <h3>1. Consulta Individual</h3>
                 <p>Escribe el CAPTCHA, extrae los datos en 1 segundo y haz Ctrl+C para pegar en tu ERP.</p>
                 <!-- IFRAME -->
                 <iframe width="800" height="800" src="https://player.vimeo.com/video/1216291237?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" "border-radius: 4px;" title="Varios"></iframe>
@@ -84,8 +83,6 @@
                 <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
             </form>
         </div>
-
-        
     </div>
 
     <script>
@@ -93,17 +90,14 @@
             document.getElementById('miFormulario').style.display = 'block';
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
-
         function procesarRegistro(e) {
             e.preventDefault();
             var correo = document.getElementById('correo').value;
             alert("¡Registro Exitoso! Guardando correo: " + correo);
             
-            // AQUÍ DIRECCIONAS EL LINK FÍSICO DE TU INSTALADOR DEMO
+            // DIRECCIONAR EL LINK FÍSICO DE TU INSTALADOR DEMO
             window.location.href = "https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip";
         }
-
-
     </script>
 </body>
 </html>

@@ -32,22 +32,16 @@
     </div>
 
     <script>
-        window.onload = function() {
-            // Extraemos los parámetros de la URL del navegador
-            const urlParams = new URLSearchParams(window.location.search);
-            const tokenRecibido = urlParams.get('llave') || "";
+   window.onload = function() {
+    setTimeout(function() {
+        window.location.href = "/ejecutar-descarga-segura";
+    }, 2000);
 
-            // Dispara la descarga binaria pasándole el token único al servidor
-            setTimeout(function() {
-                window.location.href = "/ejecutar-descarga-segura?token=" + tokenRecibido;
-            }, 2000);
-
-            // Redirección automática de regreso al inicio limpio de tu vitrina
-            setTimeout(function() {
-                window.location.href = "/";
-            }, 12000);
-        };
-    </script>
+    setTimeout(function() {
+        window.location.href = "/index.html";
+    }, 12000);
+   };
+   </script>
 
 
 </body>

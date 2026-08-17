@@ -64,16 +64,15 @@
             <p>          No necesitas instalar nada mas </p>
             
             <p style="font-size: 0.9em; color: #666;">Al enviar el formulario se iniciará la descarga de forma automatizada.</p>
+        <form action="https://formsubmit.co/anacomc@gmail.com" method="POST">
+            <!-- Cambiamos la ruta relativa por tu dirección real completa de Render -->
+            <input type="hidden" name="_next" value="https://mi-vitrina-captcha.onrender.com/">
+            <input type="hidden" name="_captcha" value="false">
             
-            <!-- FORMSUBMIT CALL -->
-            <form action="https://formsubmit.co/anacomc@gmail.com" method="POST">
-                <!-- SINTONIZADO: El rebote apunta a tu nueva subruta blindada de Express -->
-                <input type="hidden" name="_next" value="/gracias">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="NombreComercial" placeholder="Tu Nombre o Empresa" required><br>
-                <input type="email" name="CorreoCliente" placeholder="Tu Correo Electrónico" required><br>
-                <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
-            </form>
+            <input type="text" name="NombreComercial" placeholder="Tu Nombre o Empresa" required><br>
+            <input type="email" name="CorreoCliente" placeholder="Tu Correo Electrónico" required><br>
+            <button type="submit" class="btn-descarga" style="margin-top: 10px;">Comenzar Descarga</button>
+        </form>
         </div>
     </div>
 

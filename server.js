@@ -13,23 +13,15 @@ app.get('/', (req, res) => {
 });
 
 // =====================================================================
-// COMPUERTA 2: ENTRADA DE GRACIAS TOLERANTE (Maneja /gracias y /gracias.html)
+// COMPUERTA 2: ENTRADA DE GRACIAS PURA (REPARADA PARA EVITAR EL BYPASS)
 // =====================================================================
-// Al estar declarada AQUÍ ARRIBA, Express interceptará la URL antes de que
-// el middleware estático intente buscar el archivo a ciegas en el disco.
-app.get(['/gracias', '/gracias.html'], (req, res) => {
-    const procedencia = req.headers.referer || "";
-
-    // Si intentan escribir la URL a mano directo en la barra, los rebota al inicio
-    if (!procedencia.includes('formsubmit.co') && !procedencia.includes(req.headers.host)) {
-        console.log("⛔ Acceso denegado a la pantalla de gracias. Intento de salto.");
-        return res.redirect('/');
-    }
-
-    // Buscamos el archivo de forma tolerante.
-    // NOTA: Asegúrate de que en tu GitHub el archivo se llame estrictamente gracias.html (en minúsculas)
+// Removemos el arreglo y dejamos que Express escuche estrictamente la subruta limpia.
+// Esto obliga a que la petición de FormSubmit se procese en sus servidores primero.
+app.get('/gracias', (req, res) => {
+    // Entregamos el archivo físico legítimo del disco de Render
     res.sendFile(path.join(__dirname, 'gracias.html'));
 });
+
 
 // --- EL PORTERO ESTÁTICO SE QUEDA ABAJO PARA QUE NO SE INTERPONGA EN LAS RUTAS ---
 app.use(express.static(path.join(__dirname)));

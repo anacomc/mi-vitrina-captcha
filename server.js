@@ -17,7 +17,7 @@ app.get(['/gracias', '/gracias.html'], (req, res) => {
 // 3. PROXY DE DESCARGA BINARIA (OCULTA EL ARCHIVO REAL DEL DISCO)
 app.get('/ejecutar-descarga-segura', (req, res) => {
     
-    const tiempoLocal = new Date().toLocaleString('es-VE', { hour12: false });
+    const tiempoLocal = new Date().toLocaleString('es-VE', { timeZone: 'America/Caracas', hour12: false });
     // console.log(`[${tiempoLocal}] 🚀 DESCARGA...`);
     console.log(tiempoLocal);
     console.log(`🚀 [${tiempoLocal}] DESCARGA - Transmitiendo bytes de rifol.zip desde la RAM del servidor...`);
@@ -41,5 +41,5 @@ app.use(express.static(path.join(__dirname)));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log("🚀 Servidor comercial operativo en puerto " + PORT);
+    console.log("🚀 999 - Servidor comercial operativo en puerto " + PORT);
 });

@@ -28,3 +28,35 @@ app.get('/gracias', (req, res) => {
     }
 
     res.sendFile(path.join(__dirname, 'gracias.html'));
+// =====================================================================
+// COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
+// =====================================================================
+app.get('/ejecutar-descarga-segura', (req, res) => {
+    const procedencia = req.headers.referer || "";
+
+    // Seguridad de ráfaga: Si intentan descargar directo desde afuera, se les tranca el bit
+    if (!procedencia.includes('/gracias') && !procedencia.includes(req.headers.host)) {
+        console.log("⛔ Intento de descarga directa bloqueado por hardware.");
+        return res.status(403).send("Acceso Denegado: No está autorizado para realizar descargas directas.");
+    }
+
+    // Ubicación física de tu instalador real adentro de la raíz de tu repositorio
+    // Asegúrate de meter tu archivo físico .zip con este mismo nombre al lado de tu server.js
+    const rutaArchivoFisico = path.join(__dirname, 'captchaSolverDemo.zip'); 
+
+    // Forzamos la descarga por búfer (El cliente baja el archivo pero jamás ve la ruta física)
+    res.download(rutaArchivoFisico, 'captchaSolverDemo.zip', (err) => {
+        if (err) {
+            console.error("❌ Error transmitiendo el instalador comprimido:", err);
+            if (!res.headersSent) {
+                res.status(500).send("El instalador no está disponible en este momento.");
+            }
+        }
+    });
+});
+
+// Inicializamos el puerto dinámico asignado por la infraestructura de Render
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 Servidor comercial corriendo en el puerto ${PORT}`);
+});

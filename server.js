@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Middleware obligatorio para tragar payloads JSON planos de FoxPro/C#
+// Middleware obligatorio para tragar payloads JSON planos de tus sistemas de escritorio
 app.use(express.json());
 
-// Servimos las imágenes de la vitrina (como tu logo.png) de forma pública
+// Servimos las imágenes de la vitrina (como tu logo.png) de forma pública en la raíz
 app.use(express.static(path.join(__dirname)));
 
 // =====================================================================
@@ -28,6 +28,8 @@ app.get('/gracias', (req, res) => {
     }
 
     res.sendFile(path.join(__dirname, 'gracias.html'));
+}); // <-- ¡AQUÍ ESTÁ EL CIERRE QUE FALTABA Y QUE CAUSABA EL ERROR!
+
 // =====================================================================
 // COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
 // =====================================================================

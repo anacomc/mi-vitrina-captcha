@@ -26,7 +26,7 @@ app.get(['/gracias', '/gracias.html'], (req, res) => {
 app.get('/ejecutar-descarga-segura', (req, res) => {
     // Ubicación física de tu instalador real 'rifol.zip' en la raíz de tu GitHub
     const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
-
+    console.log("🚀 Solicitud de ejecutar-descarga-segura " + rutaArchivoFisico);
     // Forzamos la descarga por búfer. Al cliente le baja limpio como 'rifol_demo.zip'
     res.download(rutaArchivoFisico, 'rifol_demo.zip', (err) => {
         if (err) {

@@ -5,11 +5,8 @@ const app = express();
 // Middleware obligatorio para tragar payloads JSON planos de tus sistemas de escritorio
 app.use(express.json());
 
-// Servimos las imágenes de la vitrina (como tu logo.png) de forma pública en la raíz
-app.use(express.static(path.join(__dirname)));
-
 // =====================================================================
-// COMPUERTA 1: ENTREGA DE LA PORTADA PRINCIPAL
+// COMPUERTA 1: PORTADA PRINCIPAL (La subimos para que mande sobre el disco)
 // =====================================================================
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -18,7 +15,8 @@ app.get('/', (req, res) => {
 // =====================================================================
 // COMPUERTA 2: ENTRADA DE GRACIAS TOLERANTE (Maneja /gracias y /gracias.html)
 // =====================================================================
-// Al pasarle un arreglo con las dos cadenas, Express atiende ambos llamados por igual
+// Al estar declarada AQUÍ ARRIBA, Express interceptará la URL antes de que
+// el middleware estático intente buscar el archivo a ciegas en el disco.
 app.get(['/gracias', '/gracias.html'], (req, res) => {
     const procedencia = req.headers.referer || "";
 
@@ -28,9 +26,13 @@ app.get(['/gracias', '/gracias.html'], (req, res) => {
         return res.redirect('/');
     }
 
-    // Le entregamos el archivo físico legítimo del disco duro de Render
+    // Buscamos el archivo de forma tolerante.
+    // NOTA: Asegúrate de que en tu GitHub el archivo se llame estrictamente gracias.html (en minúsculas)
     res.sendFile(path.join(__dirname, 'gracias.html'));
 });
+
+// --- EL PORTERO ESTÁTICO SE QUEDA ABAJO PARA QUE NO SE INTERPONGA EN LAS RUTAS ---
+app.use(express.static(path.join(__dirname)));
 
 // =====================================================================
 // COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
@@ -61,5 +63,5 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
 // Inicializamos el puerto dinámico asignado por la infraestructura de Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor comercial corriendo en el puerto ${PORT}`);
+    console.log("🚀 10. Servidor comercial unificado operando en puerto " + PORT);
 });

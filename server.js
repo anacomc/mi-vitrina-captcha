@@ -16,19 +16,21 @@ app.get('/', (req, res) => {
 });
 
 // =====================================================================
-// COMPUERTA 2: ENTREGA DE GRACIAS (ANTI-TRAMPA POR ENTRADA DIRECTA)
+// COMPUERTA 2: ENTRADA DE GRACIAS TOLERANTE (Maneja /gracias y /gracias.html)
 // =====================================================================
-app.get('/gracias', (req, res) => {
+// Al pasarle un arreglo con las dos cadenas, Express atiende ambos llamados por igual
+app.get(['/gracias', '/gracias.html'], (req, res) => {
     const procedencia = req.headers.referer || "";
 
-    // Si intentan escribir /gracias a mano en la barra del navegador, los rebota al inicio
+    // Si intentan escribir la URL a mano directo en la barra, los rebota al inicio
     if (!procedencia.includes('formsubmit.co') && !procedencia.includes(req.headers.host)) {
-        console.log("⛔ Acceso denegado a /gracias. Intento de salto de formulario.");
+        console.log("⛔ Acceso denegado a la pantalla de gracias. Intento de salto.");
         return res.redirect('/');
     }
 
+    // Le entregamos el archivo físico legítimo del disco duro de Render
     res.sendFile(path.join(__dirname, 'gracias.html'));
-}); // <-- ¡AQUÍ ESTÁ EL CIERRE QUE FALTABA Y QUE CAUSABA EL ERROR!
+});
 
 // =====================================================================
 // COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
@@ -42,7 +44,7 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
         return res.status(403).send("Acceso Denegado: No está autorizado para realizar descargas directas.");
     }
 
-    // --- REPARADO: Apuntamos exactamente a tu archivo real 'rifol.zip' ---
+    // Ubicación física de tu instalador real adentro de la raíz de tu repositorio
     const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
 
     // Forzamos la descarga por búfer (Busca 'rifol.zip' en el disco, pero al usuario le baja como 'rifol_demo.zip')

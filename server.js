@@ -16,7 +16,10 @@ app.get(['/gracias', '/gracias.html'], (req, res) => {
 
 // 3. PROXY DE DESCARGA BINARIA (OCULTA EL ARCHIVO REAL DEL DISCO)
 app.get('/ejecutar-descarga-segura', (req, res) => {
-    console.log(`🚀 [${new Date().toISOString()}] DESCARGA - Transmitiendo bytes de rifol.zip desde la RAM del servidor...`);
+    
+    const tiempoLocal = new Date().toLocaleString('es-VE', { hour12: false });
+    // console.log(`[${tiempoLocal}] 🚀 DESCARGA...`);
+    console.log(`🚀 [${tiempoLocal}] DESCARGA - Transmitiendo bytes de rifol.zip desde la RAM del servidor...`);
 
     
     const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 

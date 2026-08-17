@@ -1,0 +1,12 @@
+{
+  "name": "vitrina-captchasolver-segura",
+  "version": "1.0.0",
+  "description": "Vitrina comercial con descarga binaria protegida",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -42,12 +42,11 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
         return res.status(403).send("Acceso Denegado: No está autorizado para realizar descargas directas.");
     }
 
-    // Ubicación física de tu instalador real adentro de la raíz de tu repositorio
-    // Asegúrate de meter tu archivo físico .zip con este mismo nombre al lado de tu server.js
-    const rutaArchivoFisico = path.join(__dirname, 'captchaSolverDemo.zip'); 
+    // --- REPARADO: Apuntamos exactamente a tu archivo real 'rifol.zip' ---
+    const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
 
-    // Forzamos la descarga por búfer (El cliente baja el archivo pero jamás ve la ruta física)
-    res.download(rutaArchivoFisico, 'captchaSolverDemo.zip', (err) => {
+    // Forzamos la descarga por búfer (Busca 'rifol.zip' en el disco, pero al usuario le baja como 'rifol_demo.zip')
+    res.download(rutaArchivoFisico, 'rifol_demo.zip', (err) => {
         if (err) {
             console.error("❌ Error transmitiendo el instalador comprimido:", err);
             if (!res.headersSent) {

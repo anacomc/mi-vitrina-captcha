@@ -19,6 +19,7 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
     
     const tiempoLocal = new Date().toLocaleString('es-VE', { hour12: false });
     // console.log(`[${tiempoLocal}] 🚀 DESCARGA...`);
+    console.log(tiempoLocal);
     console.log(`🚀 [${tiempoLocal}] DESCARGA - Transmitiendo bytes de rifol.zip desde la RAM del servidor...`);
 
     

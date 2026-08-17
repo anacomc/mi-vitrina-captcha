@@ -2,16 +2,29 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Middleware obligatorio para tragar payloads JSON planos de tus sistemas de escritorio
+// Middleware obligatorio para procesar payloads JSON planos de tus sistemas de escritorio
 app.use(express.json());
 
 // =====================================================================
-// COMPUERTA 1: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
+// COMPUERTA 1: LA PORTADA PRINCIPAL (ELIMINA EL 'NOT FOUND' DE LA RAÍZ)
 // =====================================================================
-// Esta es la ÚNICA ruta lógica que necesitamos en el backend. 
-// El navegador la llamará de forma interna desde el gracias.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// =====================================================================
+// COMPUERTA 2: PÁGINA DE GRACIAS (MANEJA LA REDIRECCIÓN DE FORMSUBMIT)
+// =====================================================================
+// Atiende tanto la subruta limpia como la estática con la extensión .html
+app.get(['/gracias', '/gracias.html'], (req, res) => {
+    res.sendFile(path.join(__dirname, 'gracias.html'));
+});
+
+// =====================================================================
+// COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
+// =====================================================================
 app.get('/ejecutar-descarga-segura', (req, res) => {
-    // Ubicación física de tu instalador real 'rifol.zip' adentro de tu GitHub
+    // Ubicación física de tu instalador real 'rifol.zip' en la raíz de tu GitHub
     const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
 
     // Forzamos la descarga por búfer. Al cliente le baja limpio como 'rifol_demo.zip'
@@ -25,16 +38,11 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
     });
 });
 
-// =====================================================================
-// COMPUERTA 2: MOTOR DE ARCHIVOS ESTÁTICOS INTEGRAL
-// =====================================================================
-// Al dejar esta línea al final, Express servirá de forma nativa e instantánea
-// tu index.html, tu gracias.html y tu logo.png con código 200 OK puro.
-// Esto hace que FormSubmit valide la ruta al microsegundo sin rebotar.
+// --- EL PORTERO ESTÁTICO SE QUEDA ABAJO PARA SERVIR EL LOGO.PNG SIN INTERFERIR EN LAS COMPUERTAS ---
 app.use(express.static(path.join(__dirname)));
 
 // Inicializamos el puerto dinámico asignado por la infraestructura de Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log("🚀 Servidor comercial simplificado operando en puerto " + PORT);
+    console.log("🚀 Servidor comercial unificado operando con éxito en puerto " + PORT);
 });

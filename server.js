@@ -20,13 +20,13 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
     const tiempoLocal = new Date().toLocaleString('es-VE', { timeZone: 'America/Caracas', hour12: false });
     // console.log(`[${tiempoLocal}] 🚀 DESCARGA...`);
     console.log(tiempoLocal);
-    console.log(`🚀 [${tiempoLocal}] DESCARGA - Transmitiendo bytes de rifol.zip desde la RAM del servidor...`);
+    console.log(`🚀 [${tiempoLocal}] DESCARGA - Transmitiendo bytes del archivo desde la RAM del servidor...`);
 
     
-    const rutaArchivoFisico = path.join(__dirname, 'rifol.zip'); 
+    const rutaArchivoFisico = path.join(__dirname, 'rifol_demo_setup.exe'); 
 
-    // Forzamos la descarga por búfer. Al cliente le baja limpio como 'rifol_demo.zip'
-    res.download(rutaArchivoFisico, 'rifol_demo.zip', (err) => {
+    // Forzamos la descarga por búfer. Al cliente le baja limpio como 'rifol_demo.exe'
+    res.download(rutaArchivoFisico, 'rifol_demo.exe', (err) => {
         if (err) {
             console.error("❌ Error transmitiendo el instalador comprimido:", err);
             if (!res.headersSent) {

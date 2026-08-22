@@ -39,7 +39,9 @@ app.get('/ejecutar-descarga-segura', (req, res) => {
 // PORTERO ESTÁTICO DE RESPALDO PARA IMÁGENES
 app.use(express.static(path.join(__dirname)));
 
+const hoy = new Date().toISOString()
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
+    console.log(hoy;
     console.log("🚀 999 - Servidor comercial operativo en puerto " + PORT);
 });

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifol - Consulta facil de rif - datos fiscales</title>
+   
+    <style>
+        :root {
+            --primary: #10b981; /* Verde líquido impecable */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        header { background-color: var(--dark); color: white; padding: 4rem 2rem; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; font-weight: 800; color: var(--light); }
+        header p { font-size: 1.2rem; color: var(--gray); margin: 1rem 0 2rem 0; }
+        .btn-download { display: inline-block; background-color: var(--primary); color: white; text-decoration: none; padding: 0.8rem 2rem; font-weight: bold; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2); transition: all 0.2s ease; }
+        .btn-download:hover { background-color: #059669; transform: translateY(-2px); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-top: 4px solid var(--primary); }
+        .card h3 { margin-top: 0; color: var(--dark); }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; text-align: center; }
+        .step { background: #e2e8f0; padding: 1.5rem; border-radius: 0.5rem; font-weight: bold; }
+        .cta-section { background-color: #f1f5f9; padding: 4rem 2rem; text-align: center; border-radius: 0.5rem; margin-top: 3rem; }
+    </style>
+   
+</head>
+<body>
+
+    <!-- =============================
+         👉 PRESENTACIÓN 
+    ================================== -->
+    <header>
+        <h1>RIFOL: Consulta rapida y facil RIF</h1>
+        <p>Consulta los datos fiscales de Clientes y Proveedores de forma fácil, ultra-veloz y por lotes desde una potente aplicación nativa para PC local.</p>
+
+        <!-- Botón Máster cableado directo al Launcher de Supabase -->
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <!-- Imagen de la izquierda -->
+            <img src="pantallamuestra1.png" style="width:25%; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.12);">
+            <!-- Botón del centro -->
+            <a href="https://supabase.co" class="btn-download">Solicitar demo</a>
+            <!-- Imagen de la derecha -->
+            <img src="pantallamuestra1.png" style="width:25%; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.12);">
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- =====================================================================
+        👉 SEPARANDO LAS VIRTUDES 
+        ===================================================================== -->
+        <section>
+            <h2 style="text-align: center; font-size: 2rem;">Simplifica tus flujos de informacion y procesos</h2>
+            <p style="text-align: center; color: var(--gray);">Ideal para empresas, escritorios contables y juridicos,integradores de sistemas, desarrolladores.</p>
+            
+            <div class="features">
+                <div class="card">
+                    <h3>Fácil de utilizar</h3>
+                    <p>Arranca el sistema en tu PC local y solicita la informacion fiscal de tus Clientes y Proveedores en pocos pasos.</p>
+                </div>
+                <div class="card">
+                    <h3>Resolución por lotes</h3>
+                    <p>Procesa grupos de Clientes y Proveedores y actualiza tu tabla SQL o una hoja de excel (Si eres integrador o soportista).</p>
+                </div>
+                <div class="card">
+                    <h3>Activación simple</h3>
+                    <p>Activa tu licencia Rifol al instante utilizando tu RIF y el serial entregado al realizar la compra.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+        👉 ACTUALIZACIÓN COMERCIAL (SELF-SERVICE)
+        ===================================================================== -->
+        <section style="margin-top: 5rem;">
+            <h2 style="text-align: center;">De la demo a la producción, sin complicaciones</h2>
+            <p style="text-align: center; color: var(--gray);">Solicita tu demo, prueba el poder del Rifol y, cuando decidas comprarlo, activa tus software ingresando tu credenciales.</p>
+            
+            <div class="steps">
+                <div class="step">1. Descarga el programa</div>
+                <div class="step">2. Pruebelo</div>
+                <div class="step">3. COMPRE su serial de activacion</div>
+                <div class="step">4. Active su Licencia y comience a trabajar.</div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+        👉 SECCIÓN DE CAPTURA COMERCIAL: INTEGRACIÓN CON FORMSUBMIT.CO
+        ===================================================================== -->
+        <section class="cta-section" style="background: white; border: 1px solid #e2e8f0; padding: 4rem 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); max-width: 600px; margin: 4rem auto 0 auto;">
+            <h2 style="margin-top: 0; font-size: 1.75rem; font-weight: 800; color: var(--dark);">Solicita una demo de CaptchaSolver</h2>
+            <p style="color: var(--gray); margin-bottom: 2.5rem; font-size: 0.95rem;">Déjanos tus datos de control y prueba la potencia de consultar facilmente los datos fiscales de tus clientes.</p>
+            
+            <!-- 1. ASOCIAMOS EL SCRIPT AQUÍ CON ONSUBMIT -->
+            <form id="formDemo" action="https://formsubmit.co/anacomc@gmail.com" method="POST" onsubmit="return procesarDescargaDemo(event)" style="text-align: left; display: grid; gap: 1.5rem;">
+                
+                <!-- Redirección automática de hardware al procesar el lead -->
+                <input type="hidden" id="nextInput" name="_next" value="https://mi-vitrina-captcha://">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div style="display: grid; gap: 0.5rem;">
+                    <label style="font-weight: 600; font-size: 0.9rem; color: var(--dark);">Tu Nombre o Empresa</label>
+                    <!-- SE AGREGÓ EL ID 'txtNombre' -->
+                    <input type="text" id="txtNombre" name="NombreComercial" placeholder="Tu Nombre o Empresa" required
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 1rem; box-sizing: border-box; transition: border 0.2s;"
+                        onfocus="this.style.borderColor='#10b981'; this.style.outline='none';" 
+                        onblur="this.style.borderColor='#cbd5e1';">
+                </div>
+
+                <div style="display: grid; gap: 0.5rem;">
+                    <label style="font-weight: 600; font-size: 0.9rem; color: var(--dark);">Tu Correo Electrónico</label>
+                    <!-- SE AGREGÓ EL ID 'txtEmail' -->
+                    <input type="email" id="txtEmail" name="CorreoCliente" placeholder="Tu Correo Electrónico" required
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 1rem; box-sizing: border-box; transition: border 0.2s;"
+                        onfocus="this.style.borderColor='#10b981'; this.style.outline='none';" 
+                        onblur="this.style.borderColor='#cbd5e1';">
+                </div>
+
+                <button type="submit" class="btn-download" style="width: 100%; border: none; padding: 1rem; font-size: 1rem; cursor: pointer; text-align: center; margin-top: 1rem;">
+                    Comenzar Descarga
+                </button>
+            </form>
+        </section>
+
+
+    </div> <!-- Cierre del container principal -->
+
+    <!-- =====================================================================
+    👉 SCRIPT CAPTURA LOS DATOS Y DISPARA LA DESCARGA
+    ===================================================================== -->
+    <script>
+        function procesarDescargaDemo(event) {
+            // 1. Capturamos los valores usando los nuevos IDs asignados
+            const nombre = document.getElementById('txtNombre').value.trim();
+            const email  = document.getElementById('txtEmail').value.trim();
+            
+            console.log(`📡 Registrando lead en caliente -> Nombre: ${nombre} | Email: ${email}`);
+            
+            // =====================================================================
+            // NOTA TÉCNICA: Aquí puedes meter tu ráfaga fetch para Supabase si lo deseas.
+            // =====================================================================
+            
+            // 2. Mostramos el mensaje de éxito
+            alert(`🏆 ¡Registro Exitoso, ${nombre}! El formulario se enviará y comenzará tu descarga.`);
+
+            // 3. Ocultamos la URL del código fuente antes de que FormSubmit procese el envío 
+            // (Combina la solución de seguridad que buscabas antes)
+            var parte1 = "https://mi-vitrina-captcha";
+            var parte2 = "/gracias";
+            document.getElementById('nextInput').value = parte1 + parte2;
+
+            // 4. RETORNAMOS TRUE: Esto le da permiso a FormSubmit para completar el envío por correo
+            // y redirigir al usuario a tu página gracias.html (donde se iniciará la descarga).
+            return true; 
+        }
+    </script>
+
+    </div>
+
+</body>
+</html>
+    

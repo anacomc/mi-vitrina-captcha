@@ -130,19 +130,49 @@
         </div>
     </div>
 <!-- ===================================================================== -->
-<!-- 👉 MONITOR DE ACTIVIDAD COMERCIAL: CONTADOR DE VISITAS SEGURO        -->
+<!-- 👉 MONITOR DE ACTIVIDAD COMERCIAL: CONTADOR DE VISITAS NATIVO AUTO-GENERADO -->
 <!-- ===================================================================== -->
 <div style="text-align: center; padding: 25px 0; background-color: #121214; font-family: 'Segoe UI', sans-serif; font-size: 13px; color: #707080; border-top: 1px solid rgba(255,255,255,0.05);">
-    <div style="margin-bottom: 10px; letter-spacing: 0.5px; font-weight: 600;">
-        📡 MONITOREO DE TRÁFICO - RIFOL LINK SUITE
+    <div style="margin-bottom: 10px; letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase;">
+        📡 Monitoreo de Tráfico - Rifol Link Suite
     </div>
     
-    <!-- MEDALLÓN INDESTRUCTIBLE FISCAL (SECURITUM HIGH-SPEED ENGINE) -->
-    <!-- Muestra las vistas en un contador limpio con fondo negro y números en verde brillante -->
-    <img src="https://securitum.com" 
-         alt="Contador de Visitas Activo" 
-         style="vertical-align: middle; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); height: 26px; border: 1px solid rgba(0,180,0,0.2);" />
+    <!-- CONTENEDOR EXCLUSIVO EN PERFECTO VERDE LÍQUIDO FISCAL -->
+    <div style="display: inline-block; background-color: #1a1a1e; color: #00b400; font-family: 'Consolas', monospace; font-size: 18px; font-weight: bold; padding: 6px 16px; border-radius: 4px; border: 1px solid rgba(0, 180, 0, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.5); letter-spacing: 2px;">
+        N° <span id="contador_vistas">000001</span>
+    </div>
 </div>
+
+<!-- 👉 EL CEREBRO AUTOMÁTICO DE ANALÍTICA LOCAL (SIN DEPENDER DE SERVIDORES CAÍDOS) -->
+<script>
+    (function() {
+        try {
+            // Interrogamos a la memoria física del navegador del cliente
+            let visitas = localStorage.getItem('rifol_vistas_count');
+            
+            if (visitas === null) {
+                // Si es la primera vez que se abre en esta máquina, inicializamos la rampa
+                visitas = 1;
+            } else {
+                // Sumamos +1 de forma matemática exacta al presionar F5 o recargar
+                visitas = parseInt(visitas) + 1;
+            }
+            
+            // Guardamos el nuevo botín contable en la persistencia del hardware
+            localStorage.setItem('rifol_vistas_count', visitas);
+            
+            // Formateamos el número para que luzca como un marcador fiscal de seis dígitos (Ej: 000124)
+            let numeroFormateado = String(visitas).padStart(6, '0');
+            
+            // Inyectamos el texto plano directamente en el monitor al nanosegundo
+            document.getElementById('contador_vistas').innerText = numeroFormateado;
+        } catch (e) {
+            // Paracaídas silencioso por si el navegador tiene las cookies ultra-bloqueadas
+            document.getElementById('contador_vistas').innerText = "000001";
+        }
+    })();
+</script>
+
 
 
     <script>
